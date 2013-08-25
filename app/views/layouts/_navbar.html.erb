@@ -7,7 +7,9 @@
         <span class="icon-bar"></span>
       </a>
       <form class="navbar-search pull-left">
-        <input type="text" class="search-query" placeholder="Search">
+        <%= form_tag notes_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
       </form>
       <div class="nav-collapse">
         <ul class="nav pull-right">
