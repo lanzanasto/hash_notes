@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @hash_tag.tag %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @hash_tag.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_hash_tag_path(@hash_tag) %> |
+<%= link_to 'Back', hash_tags_path %>
