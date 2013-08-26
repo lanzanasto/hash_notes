@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = current_user.notes
-    @hash_tags = current_user.hash_tags
+    @hash_tags = current_user.hash_tags.map(&:tag)
 
     if params[:search] && params[:search] != ""
       @notes = @notes.find_with_ferret(params[:search])
@@ -91,15 +91,22 @@ class NotesController < ApplicationController
     end
   end
 
-
   private
 
   def find_note
     @note = Note.find(params[:id])
   end
 
+  # Extract #tags from the content.
+  # Examples:
+  #   - #tag
+  #   - #tag_tag
+  def extract_tags content
+    content.scan(/#\w*/)
+  end
+
   def save_tags content
-    tags = content.scan(/#\w*/)
+    tags = extract_tags content
     tags.each do |tag|
       hash_tags = HashTag.where(:tag => tag, :user_id => current_user.id)
       if hash_tags.empty?
@@ -112,7 +119,7 @@ class NotesController < ApplicationController
   end
 
   def destroy_tags content
-    tags = content.scan(/#\w*/)
+    tags = extract_tags content
     tags.each do |tag|
       hash_tags = HashTag.where(:tag => tag, :user_id => current_user.id)
       unless hash_tags.empty?

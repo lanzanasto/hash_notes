@@ -7,9 +7,7 @@
         <span class="icon-bar"></span>
       </a>
       <form class="navbar-search pull-left">
-        <%= form_tag notes_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
-        <% end %>
+        <input type="text" class="search-query" data-provide="typeahead" data-items="8" data-source='<%= @hash_tags.to_json %>'>
       </form>
       <div class="nav-collapse">
         <ul class="nav pull-right">

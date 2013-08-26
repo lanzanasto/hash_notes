@@ -4,7 +4,7 @@ class HashTagsController < ApplicationController
   # GET /hash_tags
   # GET /hash_tags.json
   def index
-    @hash_tags = HashTag.all
+    @hash_tags = current_user.hash_tags
 
     respond_to do |format|
       format.html # index.html.erb

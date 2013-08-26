@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "#Notes" %></title>
     <%= stylesheet_link_tag "application" %>
+    <%= javascript_tag "var hash_tags = #{ @hash_tags.to_json };" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
