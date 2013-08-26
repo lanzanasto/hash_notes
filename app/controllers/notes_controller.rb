@@ -6,7 +6,6 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    debugger
     @notes = current_user.notes
 
     if params[:search] && params[:search] != ""
