@@ -9,13 +9,13 @@
   </div>
 
   <div class="note-up">
+    <div class="left">
+      <%= extract_tags note.content %>
+    </div>
+
     <div class="right">
       <a href="<%= edit_note_path(note) %>"><i class="icon-pencil"></i> </a>
       <a href="<%= note_path(note) %>"><i class="icon-trash"></i></a>
-    </div>
-
-    <div class="left">
-      <%= extract_tags note.content %>
     </div>
   </div>
 

@@ -1,7 +1,5 @@
 HashNotes::Application.routes.draw do
-  resources :notes do
-    get :autocomplete_hash_tag, :on => :collection
-  end
+  resources :notes
 
   resources :hash_tags
 
