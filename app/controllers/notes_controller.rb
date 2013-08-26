@@ -6,8 +6,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
+    debugger
     @notes = current_user.notes
-    @hash_tags = current_user.hash_tags.map(&:tag)
 
     if params[:search] && params[:search] != ""
       @notes = @notes.find_with_ferret(params[:search])
@@ -96,6 +96,7 @@ class NotesController < ApplicationController
   def find_note
     @note = Note.find(params[:id])
   end
+
 
   # Extract #tags from the content.
   # Examples:
