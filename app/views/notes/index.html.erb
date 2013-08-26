@@ -1,23 +1,5 @@
-<table>
-  <tr>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @notes.each do |note| %>
-  <tr>
-    <td><%= note.content %></td>
-    <td><%= note.user.email %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <%= render :partial => 'notes/note', :locals => {:note => note} %>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Note', new_note_path %>

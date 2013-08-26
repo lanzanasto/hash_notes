@@ -1,0 +1,18 @@
+<div class="note">
+
+  <div class="note-container">
+    <div class="note-content">
+      <p>
+        <%= note.content.gsub("\n","<br/>").html_safe %>
+      </p>
+    </div>
+  </div>
+
+  <div class="note-up">
+    <div class="right">
+      <a href="<%= edit_note_path(note) %>"><i class="icon-pencil"></i> </a>
+      <a href="<%= note_path(note) %>"><i class="icon-trash"></i></a>
+    </div>
+  </div>
+
+</div>
