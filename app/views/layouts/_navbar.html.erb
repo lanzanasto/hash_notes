@@ -3,17 +3,17 @@
     <div class="container">
       <% if user_signed_in? %>
         <ul class="nav pull-left">
-          <a class="btn btn-primary" href="<%= new_note_path %>"><i class="icon-pencil icon-white"></i></a>
+          <a class="btn btn-primary" href="<%= new_note_path %>"><i class="icon-pencil"></i></a>
         </ul>
         <form class="navbar-search pull-left">
           <input type="text" class="search-query" placeholder="Search" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'>
         </form>
       <% else %>
         <ul class="nav pull-left">
-          <a class="btn btn-primary disabled" href="#"><i class="icon-pencil icon-white"></i></a>
+          <a class="btn btn-primary disabled" href="#"><i class="icon-pencil"></i></a>
         </ul>
         <form class="navbar-search pull-left">
-          <input type="text" class="search-query" disabled placeholder="Search" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'>
+          <input type="text" class="search-query" disabled placeholder="Search" %>'>
         </form>
       <% end %>
       <ul class="nav pull-right">
