@@ -45,4 +45,8 @@ class Note < ActiveRecord::Base
     content.scan(/#\w*/)
   end
 
+  def html_safe_content
+    content.gsub(/\n/,"<br/>").html_safe
+  end
+
 end

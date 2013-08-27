@@ -3,7 +3,7 @@
   <div class="note-container">
     <div class="note-content">
       <p>
-        <%= note.content.gsub("\n","<br/>").html_safe %>
+        <%= best_in_place note, :content, type: :textarea, :display_as => :html_safe_content %>
       </p>
     </div>
   </div>
@@ -15,7 +15,6 @@
     </div>
 
     <div class="right">
-      <a href="<%= edit_note_path(note) %>"><i class="icon-pencil"></i> </a>
       <%= link_to note, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <i class="icon-trash"></i></a>
       <% end %>

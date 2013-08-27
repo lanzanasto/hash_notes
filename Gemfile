@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'best_in_place'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
