@@ -10,7 +10,8 @@
 
   <div class="note-up">
     <div class="left">
-      <%= extract_tags note.content %>
+      <%= distance_of_time_in_words_to_now(note.updated_at) %>
+      ago
     </div>
 
     <div class="right">

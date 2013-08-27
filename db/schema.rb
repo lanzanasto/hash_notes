@@ -11,17 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827065113) do
+ActiveRecord::Schema.define(:version => 20130827075637) do
 
   create_table "hash_tags", :force => true do |t|
     t.string   "tag"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "count"
   end
 
   add_index "hash_tags", ["user_id"], :name => "index_hash_tags_on_user_id"
+
+  create_table "note_hashes", :force => true do |t|
+    t.integer  "note_id"
+    t.integer  "hash_tag_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "notes", :force => true do |t|
     t.text     "content"
