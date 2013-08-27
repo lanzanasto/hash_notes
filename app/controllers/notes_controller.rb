@@ -6,10 +6,11 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = current_user.notes
 
     if params[:search] && params[:search] != ""
-      @notes = @notes.find_with_ferret(params[:search])
+      @notes = Note.search params[:search], :order => :updated_at, :sort_mode => :desc, :with => {:user_id => current_user.id}
+    else
+      @notes = current_user.notes
     end
 
     respond_to do |format|

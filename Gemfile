@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'acts_as_ferret', '>= 0.5'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "less-rails"
+gem 'mysql2',          '0.3.12b5'
 gem 'rails', '3.2.13'
-gem 'sqlite3'
 gem "therubyracer"
+gem 'thinking-sphinx', '~> 3.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.

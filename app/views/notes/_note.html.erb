@@ -15,7 +15,9 @@
 
     <div class="right">
       <a href="<%= edit_note_path(note) %>"><i class="icon-pencil"></i> </a>
-      <a href="<%= note_path(note) %>"><i class="icon-trash"></i></a>
+      <%= link_to note, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="icon-trash"></i></a>
+      <% end %>
     </div>
   </div>
 
