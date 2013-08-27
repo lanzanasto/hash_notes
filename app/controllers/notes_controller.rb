@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
+    @note = Note.new
 
     if params[:search] && params[:search] != ""
       @notes = Note.search params[:search], :with => {:user_id => current_user.id}
@@ -53,9 +54,11 @@ class NotesController < ApplicationController
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -82,6 +85,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to notes_url }
       format.json { head :no_content }
+      format.js { render :nothing => true }
     end
   end
 

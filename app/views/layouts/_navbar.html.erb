@@ -2,16 +2,10 @@
   <div class="navbar-inner">
     <div class="container">
       <% if user_signed_in? %>
-        <ul class="nav pull-left">
-          <a class="btn btn-primary" href="<%= new_note_path %>"><i class="icon-pencil"></i></a>
-        </ul>
         <form action="/notes" method="get" class="navbar-search pull-left">
           <input id="search" name="search" value="<%= params[:search] %>" type="text" class="search-query" placeholder="Search" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>' autocomplete="off" >
         </form>
       <% else %>
-        <ul class="nav pull-left">
-          <a class="btn btn-primary disabled" href="#"><i class="icon-pencil"></i></a>
-        </ul>
         <form class="navbar-search pull-left">
           <input type="text" class="search-query" disabled placeholder="Search">
         </form>

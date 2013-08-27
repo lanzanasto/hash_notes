@@ -1,0 +1,3 @@
+$("#new_note").before('<div id="flash_notice"><%= escape_javascript(flash.discard(:notice)) %></div>');
+$("#notes").append("<%= escape_javascript(render(:partial => @note)) %>");
+$("#new_note")[0].reset();

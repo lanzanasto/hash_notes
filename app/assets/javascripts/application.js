@@ -16,3 +16,24 @@
 //= require best_in_place
 //= require twitter/bootstrap
 //= require_tree .
+
+$('.delete_note').bind('ajax:success', function() {
+    $(this).closest("div.note").fadeOut();
+});
+
+jQuery.ajaxSetup({
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+jQuery.fn.submitWithAjax = function() {
+  this.submit(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+    return false;
+  })
+  return this;
+};
+
+$(document).ready(function() {
+  $('.new_note').submitWithAjax();
+})
+
