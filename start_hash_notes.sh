@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rake ts:start
+rake ts:restart
 rake db:setup
 rake ts:rebuild
 
