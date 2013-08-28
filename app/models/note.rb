@@ -42,7 +42,7 @@ class Note < ActiveRecord::Base
   end
 
   def extract_tags
-    content.scan(/#\w*/)
+    content.scan(/#[[:alpha:]]*/)
   end
 
   def html_safe_content
