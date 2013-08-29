@@ -1,6 +1,9 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+      <ul class="nav pull-left">
+        <a class="btn" href="<%= root_path %>"><i class="icon-home"></i></a>
+      </ul>
       <% if user_signed_in? %>
         <form action="/notes" method="get" class="navbar-search pull-left">
           <input id="search" name="search" value="<%= params[:search] %>" type="text" class="search-query" placeholder="Search" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>' autocomplete="off" >
