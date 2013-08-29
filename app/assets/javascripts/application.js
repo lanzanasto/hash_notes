@@ -38,3 +38,7 @@ $(document).ready(function() {
 $(document).on('ajax:success', '.delete_note', function(e) {
     $(e.currentTarget).closest('div.note').fadeOut();
 });
+
+$(function() {
+   $('#content').autogrow();
+});

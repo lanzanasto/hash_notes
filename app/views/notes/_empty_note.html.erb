@@ -15,7 +15,7 @@
       <% end %>
 
       <div class="note-content">
-        <%= f.text_area :content, :rows => "1" %>
+        <textarea rows="1" id="content" name="content" placeholder="Type here ..." data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'></textarea>
       </div>
       <div class="actions">
         <%= f.submit %>
