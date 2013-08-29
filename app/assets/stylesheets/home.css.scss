@@ -1,3 +1,43 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.alert-error {
+  a {
+    :hover {
+      text-decoration: none;
+      background-color: #f2dede;
+      color: #000000;
+    }
+  }
+}
+
+.alert-success {
+  a {
+    :hover {
+      text-decoration: none;
+      background-color: #dff0d8;
+      color: #000000;
+    }
+  }
+}
+
+.alert-info {
+  a {
+    :hover {
+      text-decoration: none;
+      background-color: #d9edf7;
+      color: #000000;
+    }
+  }
+}
+
+.alert-warning {
+  a {
+    :hover {
+      text-decoration: none;
+      background-color: #fcf8e3;
+      color: #000000;
+    }
+  }
+}
