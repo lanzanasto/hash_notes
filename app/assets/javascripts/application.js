@@ -20,7 +20,7 @@
 
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
+});
 
 jQuery.fn.submitWithAjax = function() {
   this.submit(function() {
@@ -32,7 +32,8 @@ jQuery.fn.submitWithAjax = function() {
 
 $(document).ready(function() {
   $('.new_note').submitWithAjax();
-})
+  $(':input:enabled:visible:first').focus();
+});
 
 $(document).on('ajax:success', '.delete_note', function(e) {
     $(e.currentTarget).closest('div.note').fadeOut();
