@@ -17,9 +17,6 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-$('.delete_note').bind('ajax:success', function() {
-    $(this).closest("div.note").fadeOut();
-});
 
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
@@ -37,3 +34,6 @@ $(document).ready(function() {
   $('.new_note').submitWithAjax();
 })
 
+$(document).on('ajax:success', '.delete_note', function(e) {
+    $(e.currentTarget).closest('div.note').fadeOut();
+});
