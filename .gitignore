@@ -7,6 +7,9 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore index files
+/db/sphinx/*
+
 # Ignore all logfiles and tempfiles.
 /log*
 /tmp
