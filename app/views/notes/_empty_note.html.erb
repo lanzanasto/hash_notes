@@ -1,26 +1,28 @@
 <div id="empty_note" class="note">
 
   <div class="note-container">
-    <%= form_for(@note, :id => "new_note") do |f| %>
-      <% if @note.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
-          <ul>
-          <% @note.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+    <% if @note.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
-      <div class="note-content">
-        <textarea rows="1" id="content" name="content" placeholder="Type here ..." data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'></textarea>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
+        <ul>
+        <% @note.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
+
+    <form accept-charset="UTF-8" action="/notes" class="new_note" id="new_note" method="post">
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <input name="authenticity_token" type="hidden" value="lv+v36hbw8DXSxYnfCoSvxtPMyDL1UQuRAkqH1ZS83M=" />
+
+      <div class="note-content">
+        <textarea type="textarea" id="note_content" name="note[content]" placeholder="Type here ..." rows="1" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'></textarea>
+      </div>
+      <button type="submit" class="btn">Create Note</button>
+    </form>
   </div>
 
   <div class="note-up">
@@ -28,5 +30,4 @@
       New Note
     </div>
   </div>
-
 </div>

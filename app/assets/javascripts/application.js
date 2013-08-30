@@ -31,7 +31,7 @@ jQuery.fn.submitWithAjax = function() {
 };
 
 $(document).ready(function() {
-  $('.new_note').submitWithAjax();
+  $('#new_note').submitWithAjax();
   $(':input:enabled:visible:first').focus();
 });
 
@@ -40,5 +40,5 @@ $(document).on('ajax:success', '.delete_note', function(e) {
 });
 
 $(function() {
-   $('#content').autogrow();
+  $('#note_content').autogrow();
 });
