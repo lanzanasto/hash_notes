@@ -1,24 +1,26 @@
-<div id="note" class="note">
+<div class="span4">
+  <div id="note" class="note">
 
-  <div class="note-container">
-    <div class="note-content">
-      <p>
-        <%= best_in_place note, :content, type: :textarea, :display_as => :html_safe_content, :nil => "Type here ...", :url => notes_path %>
-      </p>
+    <div class="note-container">
+      <div class="note-content">
+        <p>
+          <%= best_in_place note, :content, type: :textarea, :display_as => :html_safe_content, :nil => "Type here ...", :url => notes_path %>
+        </p>
+      </div>
     </div>
+
+    <div class="note-up">
+      <div class="left">
+        <%= distance_of_time_in_words_to_now(note.updated_at) %>
+        ago
+      </div>
+
+      <div class="right">
+        <%= link_to note, method: :delete, :remote=>true, :class=>'delete_note' do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
+    </div>
+
   </div>
-
-  <div class="note-up">
-    <div class="left">
-      <%= distance_of_time_in_words_to_now(note.updated_at) %>
-      ago
-    </div>
-
-    <div class="right">
-      <%= link_to note, method: :delete, :remote=>true, :class=>'delete_note' do %>
-        <i class="icon-trash"></i>
-      <% end %>
-    </div>
-  </div>
-
 </div>
