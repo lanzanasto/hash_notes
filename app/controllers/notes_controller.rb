@@ -9,10 +9,12 @@ class NotesController < ApplicationController
     @note = Note.new
 
     if params[:search] && params[:search] != ""
-      @notes = Note.search params[:search], :with => {:user_id => current_user.id}
+      @notes = Note.search(params[:search], :with => {:user_id => current_user.id})
     else
       @notes = current_user.notes
     end
+
+    @notes.sort! { |a,b| b.updated_at <=> a.updated_at }
 
     respond_to do |format|
       format.html # index.html.erb
