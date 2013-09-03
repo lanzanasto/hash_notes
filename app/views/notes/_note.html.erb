@@ -22,5 +22,13 @@
       </div>
     </div>
 
+    <div class="right">
+      <% note.hash_tags.each do |tag| %>
+        <div class="tag" style="background-color: #<%= tag.color %>">
+          <%= tag.tag %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

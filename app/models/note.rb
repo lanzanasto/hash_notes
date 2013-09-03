@@ -1,8 +1,4 @@
 class Note < ActiveRecord::Base
-  include ThinkingSphinx::Scopes
-
-  sphinx_scope(:date_order) { {:order => :updated_at} }
-  default_sphinx_scope :date_order
 
   belongs_to :user
 
@@ -36,7 +32,8 @@ class Note < ActiveRecord::Base
   end
 
   def create_tag tag
-    hash_tag = HashTag.create(:tag => tag, :user => user)
+    color = "%06x" % (rand * 0xffffff)
+    hash_tag = HashTag.create(:tag => tag, :user => user, :color => color)
     hash_tag.save!
     self.hash_tags << hash_tag
   end

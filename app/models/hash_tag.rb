@@ -4,5 +4,5 @@ class HashTag < ActiveRecord::Base
   has_many :note_hashes
   has_many :notes, through: :note_hashes
 
-  attr_accessible :tag, :user
+  attr_accessible :tag, :user, :color
 end
