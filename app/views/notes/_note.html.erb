@@ -24,9 +24,11 @@
 
     <div class="hash_tags">
       <% note.hash_tags.each do |tag| %>
-        <div class="tag" style="background-color: #<%= tag.color %>">
-          <%= tag.tag %>
-        </div>
+        <%= link_to :controller => 'notes', :action => 'index', :search => tag.tag do %>
+          <div class="tag" style="color: #<%= tag.color %>">
+            <%= tag.tag %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
