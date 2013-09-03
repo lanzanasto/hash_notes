@@ -3,7 +3,7 @@ class Note < ActiveRecord::Base
   belongs_to :user
 
   has_many :note_hashes
-  has_many :hash_tags, through: :note_hashes
+  has_many :hash_tags, through: :note_hashes, :uniq => true
 
   attr_accessible :content, :user
 
@@ -34,7 +34,6 @@ class Note < ActiveRecord::Base
   def create_tag tag
     color = "%06x" % (rand * 0xffffff)
     hash_tag = HashTag.create(:tag => tag, :user => user, :color => color)
-    hash_tag.save!
     self.hash_tags << hash_tag
   end
 
