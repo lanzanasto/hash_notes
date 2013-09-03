@@ -1,6 +1,6 @@
 <div id="empty_note" class="note">
 
-  <div class="note-container">
+  <div class="new-note-container">
 
     <% if @note.errors.any? %>
       <div id="error_explanation">
@@ -18,9 +18,7 @@
       <input name="utf8" type="hidden" value="&#x2713;" />
       <input name="authenticity_token" type="hidden" value="lv+v36hbw8DXSxYnfCoSvxtPMyDL1UQuRAkqH1ZS83M=" />
 
-      <div class="note-content">
-        <textarea type="textarea" id="note_content" name="note[content]" style="width:90%;" placeholder="Type here ..." rows="1" overflow="auto" columns="5" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'></textarea>
-      </div>
+      <textarea type="textarea" id="note_content" name="note[content]" style="width:90%;" placeholder="Type here ..." rows="1" overflow="auto" columns="5" data-provide="typeahead" data-items="8" data-source='<%= get_hash_tags.to_json %>'></textarea>
       <button type="submit" class="btn">Create Note</button>
     </form>
   </div>
